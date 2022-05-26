@@ -2,9 +2,27 @@ package main
 
 import "fmt"
 
+const size int = 20
+
+//go中变量的作用域 与变量声明的位置有关 函数内则为局部变量  函数外则为全局变量
+var age int = 20
+
 func getName() (userName, nickName string) {
 	return "Young", "Little"
 }
+
+//以大写字母开头的常量在包外可见 小写字母开头的常量只能在包内访问
+const (
+	Sunday = iota
+	Monday
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
+	numberOfDays
+)
+
 func main() {
 	var v1 int //声明一个变量
 	fmt.Println("v1 =", v1)
@@ -42,4 +60,13 @@ func main() {
 
 	_, nickName := getName()
 	fmt.Println("nickName =", nickName)
+
+	//多重赋值
+	var i int = 10
+	var a int = 20
+	i, a = a, i
+	fmt.Println("i=", i)
+	fmt.Println("a = ", a)
+
+	fmt.Println("const size is:", size)
 }
