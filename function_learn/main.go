@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"function_learn/mymath"
+	reflect "reflect"
 )
 
 func main() {
@@ -53,6 +54,25 @@ func main() {
 
 	slice := []int{1, 2, 3, 4, 5}
 	myFunc(slice...)
+
+	//自定义可变类型
+	myPrintf(2, "a")
+}
+
+//任意类型的变长参数
+
+func myPrintf(args ...interface{}) {
+	for _, i2 := range args {
+
+		switch reflect.TypeOf(i2).Kind() {
+		case reflect.Int:
+			fmt.Println(i2, "is int type")
+		case reflect.String:
+			fmt.Println(i2, "is string type")
+		default:
+			fmt.Println("not support")
+		}
+	}
 }
 
 //引用传递
@@ -66,5 +86,4 @@ func myFunc(nums ...int) {
 	for _, i2 := range nums {
 		fmt.Println(i2)
 	}
-
 }
