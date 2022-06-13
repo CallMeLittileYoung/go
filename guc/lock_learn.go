@@ -20,7 +20,7 @@ func lockLearn() {
 		c := counter
 		lock.Unlock()
 		runtime.Gosched()
-		if c >= 10 {
+		if c >= 100 {
 			break
 		}
 	}
