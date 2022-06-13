@@ -1,11 +1,11 @@
 package entity
 
 type Animal struct {
-	Name string
+	name string
 }
 
 func NewAnimal(name string) *Animal {
-	return &Animal{Name: name}
+	return &Animal{name: name}
 }
 
 func (a Animal) Call() string {
@@ -16,5 +16,5 @@ func (a Animal) FavorFood() string {
 	return "动物爱吃食物"
 }
 func (a Animal) GetName() string {
-	return a.Name
+	return a.name
 }
