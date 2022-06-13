@@ -35,3 +35,7 @@ func learn3() {
 func add(a, b int, call func(a, b int) int) {
 	fmt.Println(call(a, b))
 }
+
+//////////////////////////////////
+
+//将匿名函数作为函数返回值
