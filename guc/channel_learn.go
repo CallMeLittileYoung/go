@@ -28,3 +28,22 @@ func Add3(a, b int, ch chan int) {
 	fmt.Println("a ", a, " + b ", b, " sum is ", a+b)
 	ch <- 1
 }
+
+func channelLearn2() {
+	s := time.Now()
+	ch := make(chan int, 20) //增加20个缓冲区,可以提高性能
+	go test2(ch)
+
+	for i2 := range ch {
+		fmt.Println(i2)
+	}
+	end := time.Now()
+	consume := end.Sub(s).Seconds()
+	fmt.Println("程序执行耗时(s)：", consume)
+}
+func test2(ch chan int) {
+	for i := 0; i < 100; i++ {
+		ch <- i
+	}
+	close(ch)
+}
