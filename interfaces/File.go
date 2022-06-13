@@ -1,4 +1,4 @@
-package interfaces
+package main
 
 type File struct {
 }
