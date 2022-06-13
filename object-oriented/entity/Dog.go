@@ -9,3 +9,8 @@ type Dog struct {
 func NewDog(animal Animal) *Dog {
 	return &Dog{Animal: animal}
 }
+
+// Call 重写方法实现覆盖
+func (a Dog) Call() string {
+	return "汪汪汪"
+}
