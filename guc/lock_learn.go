@@ -16,6 +16,7 @@ func lockLearn() {
 		go Add2(i, 1, &lock)
 	}
 	for {
+		//这里加锁有必要吗
 		lock.Lock()
 		c := counter
 		lock.Unlock()
