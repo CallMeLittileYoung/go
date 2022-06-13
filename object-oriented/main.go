@@ -11,4 +11,5 @@ func main() {
 	fmt.Println(dog.GetName())
 	fmt.Println(dog.Call())
 	fmt.Println(dog.FavorFood())
+
 }
