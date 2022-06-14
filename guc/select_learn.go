@@ -20,7 +20,7 @@ func selectLearn() {
 		fmt.Println("第2个分支被选中 num2 ", num2)
 	case num3 := <-chs[2]:
 		fmt.Println("第3个分支被选中 num2 ", num3)
-	default:
+	default: //没有default 会阻塞
 		fmt.Println("没有分支被选中")
 	}
 }
