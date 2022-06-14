@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-//模拟db
+//模拟db db
 var db = make(map[string]string)
 
 func setRouter() *gin.Engine {
@@ -49,5 +49,8 @@ func setRouter() *gin.Engine {
 }
 func main() {
 	router := setRouter()
-	router.Run(":10086")
+	err := router.Run(":10086")
+	if err != nil {
+		return
+	}
 }
