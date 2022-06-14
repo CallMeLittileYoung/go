@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"runtime"
+	"time"
 )
 
 func selectLearn() {
@@ -23,4 +25,38 @@ func selectLearn() {
 	default: //没有default 会阻塞
 		fmt.Println("没有分支被选中")
 	}
+
+}
+
+func select2() {
+	s := time.Now()
+	cpus := runtime.NumCPU()
+	runtime.GOMAXPROCS(cpus)
+
+	chans := make([]chan int, cpus)
+
+	for i := 0; i < cpus; i++ {
+		ch := make(chan int)
+		chans[i] = ch
+		go sum4(i, ch) //开启协程
+	}
+	sum := 0
+	for _, ch := range chans {
+		sum += <-ch
+	}
+	//total sum is 399999960000000  cost: 11.1755ms
+	//--- PASS: Test_select_learn (0.01s)
+	fmt.Println("total sum is", sum, " cost:", time.Since(s))
+}
+
+//新增
+
+func sum4(seq int, ch chan int) {
+	defer close(ch) //保证channel正常关闭
+	sum := 0
+	for i := 0; i < 10000000; i++ {
+		sum += i
+	}
+	fmt.Println("子协程 ", seq, " 运算结果", sum)
+	ch <- sum
 }
