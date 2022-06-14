@@ -31,7 +31,7 @@ func selectLearn() {
 func select2() {
 	s := time.Now()
 	cpus := runtime.NumCPU()
-	runtime.GOMAXPROCS(cpus)
+	runtime.GOMAXPROCS(cpus) //改为1
 
 	chans := make([]chan int, cpus)
 
@@ -47,6 +47,9 @@ func select2() {
 	//total sum is 399999960000000  cost: 11.1755ms
 	//--- PASS: Test_select_learn (0.01s)
 	fmt.Println("total sum is", sum, " cost:", time.Since(s))
+
+	//total sum is 399999960000000  cost: 35.3078ms
+	//--- PASS: Test_select_learn (0.04s)
 }
 
 //新增
