@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-//模拟db db
+//模拟db db阿
 var db = make(map[string]string)
 
 func setRouter() *gin.Engine {
