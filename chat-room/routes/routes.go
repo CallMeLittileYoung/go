@@ -1,6 +1,9 @@
 package routes
 
-import "net/http"
+import (
+	"chat-room/handlers"
+	"net/http"
+)
 
 // 定义一个 WebRoute 结构体用于存放单个路由
 type WebRoute struct {
@@ -14,4 +17,11 @@ type WebRoute struct {
 type WebRoutes []WebRoute
 
 // 定义所有 Web 路由
-var webRoutes = WebRoutes{}
+var webRoutes = WebRoutes{
+	{
+		"home",
+		"GET",
+		"/",
+		handlers.Index,
+	},
+}
