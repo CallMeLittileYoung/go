@@ -5,6 +5,7 @@ import (
 	"crypto/sha1"
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql" //会自动初始化init方法？
 	"log"
 )
 
