@@ -25,6 +25,14 @@ func setRouter() *gin.Engine {
 			context.JSON(http.StatusOK, gin.H{"user": name, "status": "no value"})
 		}
 	})
+	//用 AsciiJSON 方法可以生成只包含 ASCII 字符的 JSON 格式数据，对于非 ASCII 字符会进行转义：
+	r.GET("/asciiJson", func(context *gin.Context) {
+		data := map[string]interface{}{
+			"name": "叫我小年轻",
+			"bbb":  "br",
+		}
+		context.AsciiJSON(http.StatusOK, data)
+	})
 	// 需要 HTTP 基本授权认证的子路由群组设置
 	authorized := r.Group("/", gin.BasicAuth(gin.Accounts{
 		"foo":   "bar", // 用户名:foo 密码:bar
