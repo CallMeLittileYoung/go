@@ -1,13 +1,26 @@
 package main
 
 import (
+	"gin-learn/entity"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 )
 
 //模拟db db阿33
 var db = make(map[string]string)
 
+func person(context *gin.Context) {
+	var person entity.Person
+	if context.ShouldBind(&person) == nil {
+		log.Println(person.Address)
+		log.Println(person.Birthday)
+		log.Println(person.Birthday)
+		context.JSON(http.StatusOK, "success")
+	} else {
+		context.JSON(http.StatusOK, "fail")
+	}
+}
 func setRouter() *gin.Engine {
 	//初始化
 	r := gin.Default()
@@ -53,6 +66,9 @@ func setRouter() *gin.Engine {
 			c.JSON(http.StatusOK, gin.H{"status": "ok"})
 		}
 	})
+	//公共这种方法来注册一个路由挺好的
+	r.POST("/person", person)
+	r.GET("/person", person)
 	return r
 }
 func main() {
