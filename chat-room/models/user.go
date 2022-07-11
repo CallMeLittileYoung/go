@@ -155,7 +155,7 @@ func (user *User) CreateThread(topic string) (conv Thread, err error) {
 	return
 }
 
-// CreatePost Create a new post to a thread
+// Create a new post to a thread
 func (user *User) CreatePost(conv Thread, body string) (post Post, err error) {
 	statement := "insert into posts (uuid, body, user_id, thread_id, created_at) values (?, ?, ?, ?, ?)"
 	stmtin, err := Db.Prepare(statement)
