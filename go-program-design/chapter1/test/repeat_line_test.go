@@ -24,3 +24,7 @@ func Test_Mu(t *testing.T) {
 		"https://draveness.me/golang/docs/part2-foundation/ch05-keyword/golang-panic-recover/"}
 	chapter1.FetchMulti(ss)
 }
+
+func Test_initWeb(t *testing.T) {
+	chapter1.InitWeb()
+}

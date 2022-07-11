@@ -21,9 +21,9 @@ const (
 
 func Gif() {
 	create, _ := os.Create("C:\\Users\\Administrator\\Desktop\\a.gif")
-	lissajous(create)
+	Lissajous(create)
 }
-func lissajous(out io.Writer) {
+func Lissajous(out io.Writer) {
 	const (
 		cycles  = 5     //完整的x振荡器变化的个数
 		res     = 0.001 //角度的分辨率
