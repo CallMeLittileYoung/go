@@ -14,5 +14,13 @@ func Test_Gif(t *testing.T) {
 }
 
 func Test_FetchUrl(t *testing.T) {
-	chapter1.FetchUrl()
+	s := "https://draveness.me/golang/"
+	chapter1.FetchUrl(s)
+}
+
+func Test_Mu(t *testing.T) {
+
+	ss := []string{"https://draveness.me/golang/", "https://draveness.me/golang/docs/part2-foundation/ch05-keyword/golang-for-range/",
+		"https://draveness.me/golang/docs/part2-foundation/ch05-keyword/golang-panic-recover/"}
+	chapter1.FetchMulti(ss)
 }
