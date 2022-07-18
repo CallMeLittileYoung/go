@@ -1,6 +1,8 @@
 package chapter3
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func Op() {
 	//0000 0010  |  0010 0000 = 0010 0010
@@ -18,6 +20,7 @@ func Op() {
 	fmt.Printf("a ^ b is %08b \n", x^y)
 	//差集  0010 0000 元素存在于a中 且不存在于b
 	fmt.Printf("a -b is  %08b \n", x&^y)
+
 }
 
 func SVG() {
