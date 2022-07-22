@@ -14,7 +14,6 @@ func Test_Json(t *testing.T) {
 		Released: "bb",
 		Actors:   []string{"aa", "b"},
 	}
-
 	indent, _ := json.MarshalIndent(movie, "", " ")
 	fmt.Printf("%s\n", indent)
 }
