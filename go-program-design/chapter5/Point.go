@@ -1,12 +1,21 @@
 package chapter5
 
-import "math"
+import (
+	"image/color"
+	"math"
+)
 
 type Point struct {
 	x, y float64
 }
 
-// p *Point 被称为接收器  可以看作时Distance 属于 对象p
+// ColoredPoint point 方法全部被纳入ColoredPoint中
+type ColoredPoint struct {
+	Point //匿名成员
+	Color color.RGBA
+}
+
+// Distance p *Point 被称为接收器  可以看作时Distance 属于 对象p
 func (p *Point) Distance(q Point) float64 {
 	return math.Hypot(q.x-p.x, q.y-p.y)
 }

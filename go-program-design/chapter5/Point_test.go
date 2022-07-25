@@ -2,6 +2,7 @@ package chapter5
 
 import (
 	"fmt"
+	"image/color"
 	"testing"
 )
 
@@ -18,4 +19,19 @@ func Test_Path(t *testing.T) {
 
 func Test_Point(t *testing.T) {
 	fmt.Printf("%T\n", (*Point).ScaleBy) //func(*chapter5.Point, float64)
+}
+
+func Test_ColoredPoint(t *testing.T) {
+
+	point := &ColoredPoint{
+		Point: Point{1, 2},
+		Color: color.RGBA{R: 3, G: 1, B: 2, A: 2},
+	}
+	p := Point{
+		x: 2,
+		y: 3,
+	}
+	//可以理解为编译器 根据组合类型 生成了新的 Distance方法
+	distance := point.Distance(p)
+	fmt.Println(distance)
 }
