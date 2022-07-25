@@ -43,3 +43,13 @@ func Test_right_move(t *testing.T) {
 	chapter4.Reverse(s[2:])
 	fmt.Println(s)
 }
+
+func Test_Map(t *testing.T) {
+	m := make(map[int]string)
+	AddMap(m)
+	fmt.Println(m)
+}
+
+func AddMap(m map[int]string) {
+	m[2] = "a"
+}
