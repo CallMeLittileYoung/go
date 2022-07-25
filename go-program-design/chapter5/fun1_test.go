@@ -4,4 +4,5 @@ import "testing"
 
 func Test_Fun1(t *testing.T) {
 	Func_Sign()
+	Func_Learn()
 }
