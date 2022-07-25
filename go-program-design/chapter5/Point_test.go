@@ -35,3 +35,17 @@ func Test_ColoredPoint(t *testing.T) {
 	distance := point.Distance(p)
 	fmt.Println(distance)
 }
+
+func Test_Method(t *testing.T) {
+	point1 := Point{
+		x: 1,
+		y: 2,
+	}
+	point2 := Point{
+		x: 2,
+		y: 3,
+	}
+	f := Point.Distance
+	f2 := f(point2, point1)
+	fmt.Println(f2)
+}
