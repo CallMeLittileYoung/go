@@ -48,4 +48,5 @@ func Test_Method(t *testing.T) {
 	f := Point.Distance
 	f2 := f(point2, point1)
 	fmt.Println(f2)
+
 }
